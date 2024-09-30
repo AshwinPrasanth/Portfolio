@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Professional Typing Effect</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Pacifico&family=Roboto:wght@400;700&display=swap">
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #121212; /* Dark background */
+            color: #ffffff; /* Default text color */
+            font-family: 'Roboto', sans-serif; /* Font family */
+        }
+
+        .container {
+            text-align: center;
+            font-size: 3rem; /* Increased font size */
+            position: relative; /* Position for the cursor effect */
+        }
+
+        .typewriter {
+            background: linear-gradient(90deg, #00bcd4, #2196f3); /* Gradient blue background */
+            -webkit-background-clip: text; /* Clip the background to the text */
+            -webkit-text-fill-color: transparent; /* Make the text transparent */
+            white-space: nowrap; /* Prevent text wrapping */
+            overflow: hidden; /* Hide the text overflow */
+            width: 0; /* Initial width */
+            animation: typing 5s steps(60, end) forwards, blink-caret 0.75s step-end infinite; /* Typing and blinking effect */
+            font-family: 'Pacifico', cursive; /* Cursive font style */
+        }
+
+        @keyframes typing {
+            from {
+                width: 0; /* Start with no width */
+            }
+            to {
+                width: 100%; /* Expand to full width */
+            }
+        }
+
+        @keyframes blink-caret {
+            50% {
+                border-color: transparent; /* Hide cursor at 50% */
+            }
+        }
+
+        /* Jazzy button styles */
+        button {
+            background: linear-gradient(45deg, #ff4081, #ff6e40); /* Gradient background */
+            color: white;
+            border: none;
+            padding: 15px 30px; /* Increased button padding */
+            font-size: 1.5rem; /* Increased button font size */
+            cursor: pointer;
+            border-radius: 5px;
+            margin-top: 20px;
+            transition: transform 0.3s ease, background 0.3s ease; /* Transition effect */
+            box-shadow: 0 4px 20px rgba(255, 64, 129, 0.3); /* Shadow for depth */
+            opacity: 0; /* Start hidden */
+            visibility: hidden; /* Start hidden */
+            transition: opacity 0.5s ease, visibility 0.5s ease; /* Smooth transition */
+        }
+
+        button.show {
+            opacity: 1; /* Show button */
+            visibility: visible; /* Make button visible */
+        }
+
+        button:hover {
+            background: linear-gradient(45deg, #ff6e40, #ff4081); /* Reverse gradient on hover */
+            transform: translateY(-3px); /* Lift effect */
+            box-shadow: 0 6px 25px rgba(255, 64, 129, 0.5); /* Enhanced shadow on hover */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="typewriter" id="typewriter-text">Workspace Upgrading To a New Look. Stay Tuned!</div>
+        <button id="view-projects-button" onclick="window.open('https://github.com/AshwinPrasanth', '_blank')">View Git Projects</button> <!-- Updated button -->
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const textElement = document.getElementById("typewriter-text");
+            textElement.innerHTML = textElement.textContent; // Preserve the text
+
+            // Show the button after the typing effect
+            setTimeout(() => {
+                const button = document.getElementById("view-projects-button");
+                button.classList.add('show'); // Add class to make the button visible
+            }, 5000); // Adjust this timing to match the typing duration
+        });
+    </script>
+</body>
+</html>
